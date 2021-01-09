@@ -38,3 +38,7 @@ def DataHora(argument):
 
 def botao1():
     print("clicou")
+
+if __name__ == '__main__':
+    print("estou por aqui")
+    print(DataHora("data1"))

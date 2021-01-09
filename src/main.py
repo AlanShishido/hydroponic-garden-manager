@@ -1,4 +1,5 @@
 import peewee
+
 db = peewee.SqliteDatabase('codigo_avulso.db')
 
 class BaseModel(peewee.Model):

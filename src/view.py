@@ -7,12 +7,6 @@ from tkinter import ttk
 # utilizar para passar parametros na função, já que no command= recebe a instancia da função
 from functools import partial
 
-#Importando funções e classes de um script criado
-import databaseSqlite3 
-import functions as sf
-
-db = databaseSqlite3.database()
-
 # pip install pillow
 from PIL import ImageTk, Image
 
@@ -23,8 +17,6 @@ from PIL import ImageTk, Image
 # variavel = tk.StringVar()
 verde = "#65aa34"
 
-
-print(sf.DataHora("tempo"))
 # criando a janela principal e tela inteira
 root = tk.Tk()
 root.title("Qualidade dos Nutrientes da Hidroponia de alface")
@@ -161,9 +153,9 @@ card4_lbImg0.pack()
 txtPag1 = tk.Text(win1, bg="#12bb23", cursor=tk.DOTBOX, font=('Roboto', 14), width=300)
 
 cabecalhoDatabase = ""
-for item in db.lista:
-    cabecalhoDatabase += item[0]
-    cabecalhoDatabase += "\t"
+# for item in db.lista:
+#     cabecalhoDatabase += item[0]
+#     cabecalhoDatabase += "\t"
 
 txtPag1.insert(tk.INSERT, cabecalhoDatabase)
 txtPag1.insert(tk.INSERT, "\n")
