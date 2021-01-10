@@ -2,3 +2,4 @@ matplotlib==3.2.2
 numpy==1.18.5
 peewee==3.14.0
 Pillow==7.1.2
+pyfase==1.0.3
