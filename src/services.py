@@ -1,5 +1,6 @@
 from datetime import date
 from datetime import datetime
+import peewee as db
 
 
 def DataHora(argument):
@@ -38,6 +39,13 @@ def DataHora(argument):
 
 def botao1():
     print("clicou")
+
+class DBManager(object):
+    # *
+    """
+    docstring
+    """
+    
 
 if __name__ == '__main__':
     print("estou por aqui")
