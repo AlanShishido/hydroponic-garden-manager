@@ -1,2 +1,2 @@
-from src import choices as var
-from src.services import DataHora
+from choices import INFO
+from services import DataHora

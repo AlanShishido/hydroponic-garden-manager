@@ -8,20 +8,19 @@ class BaseModel(peewee.Model):
     class Meta:
         database = db
 
-class Gardens(BaseModel):
-    name = peewee.CharField(unique=True)
-    number = peewee.IntegerField()
 
 class LettuceDatas(BaseModel):
-    garden = peewee.ForeignKeyField(Gardens)
+    acquired_date = peewee.DateField()
     acquired_time = peewee.TimeField()
     ph = peewee.FloatField()
     tds = peewee.FloatField()
     ambient_temp = peewee.FloatField()
     water_temp = peewee.FloatField()
     
-
-
+class Gardens(BaseModel):
+    name = peewee.CharField(unique=True)
+    number = peewee.IntegerField()
+    datas = peewee.ForeignKeyField(LettuceDatas)
 
 if __name__ == '__main__':
     try:

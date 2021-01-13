@@ -1,2 +1,8 @@
+# dados de desenvolvimento
+.idea/*
+venv/*
+prog_test/*
 
+# Cache e depuração
+.vscode/*
 src/__pycache__/*
