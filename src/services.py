@@ -1,6 +1,6 @@
 from datetime import date
 from datetime import datetime
-import peewee as db
+from src.database_models import Author
 
 
 def DataHora(argument):
@@ -45,8 +45,5 @@ class DBManager(object):
     """
     docstring
     """
-    
 
-if __name__ == '__main__':
-    print("estou por aqui")
-    print(DataHora("data1"))
+    
