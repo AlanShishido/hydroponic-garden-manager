@@ -5,4 +5,4 @@ prog_test/*
 
 # Cache e depuração
 .vscode/*
-src/__pycache__/*
+__pycache__/

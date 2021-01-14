@@ -8,5 +8,4 @@ Install requerements.txt
 
 TODO := Buy Font 12V/3000mA
 TODO := Buy Jack P4 pin
-TODO := ADS to receive analogic signal
 TODO := Assembly Eletronic Project

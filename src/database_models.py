@@ -1,7 +1,7 @@
 import peewee
 from choices import DatabaseInfo as DB
 
-db = peewee.SqliteDatabase(DB.TABLE_NAME)
+db = peewee.SqliteDatabase(DB.SOURCE)
 
 class BaseModel(peewee.Model):
 
