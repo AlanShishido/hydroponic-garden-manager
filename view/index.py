@@ -3,11 +3,10 @@ import os.path
 import tkinter as tk
 from tkinter import ttk
 from functools import partial
-# from PIL import ImageTk, Image
 
-# from src.view import colors
+# from view import colors
+# import colors
 import colors
-# from ...src.view import colors
 
 root = tk.Tk()
 root.title("Qualidade dos Nutrientes da Hidroponia de alface")
