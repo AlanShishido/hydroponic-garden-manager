@@ -1,10 +1,13 @@
-import sys, os.path
+import sys
+import os.path
 import tkinter as tk
 from tkinter import ttk
 from functools import partial
-from PIL import ImageTk, Image
+# from PIL import ImageTk, Image
 
-from src.view import colors
+# from src.view import colors
+import colors
+# from ...src.view import colors
 
 root = tk.Tk()
 root.title("Qualidade dos Nutrientes da Hidroponia de alface")
@@ -18,9 +21,10 @@ root.geometry("{0}x{1}+0+-3".format(widthMaxPx-pad, heightMaxPx-pad))
 
 # cabeçalho
 ctHeader = tk.Frame(root, bg=colors.AERO_BLUE)
-lbH1 = tk.Label(ctHeader, text="Hidroponia de Alfaces", bg=colors.AERO_BLUE, font=("Roboto",32, "bold"))
+lbH1 = tk.Label(ctHeader, text="Hidroponia de Alfaces",
+                bg=colors.AERO_BLUE, font=("Roboto", 32, "bold"))
 
-ctHeader.pack(side=tk.TOP,fill='x')
+ctHeader.pack(side=tk.TOP, fill='x')
 lbH1.pack(side=tk.LEFT, expand=1)
 
 

@@ -4,5 +4,6 @@ venv/*
 prog_test/*
 
 # Cache e depuração
-.vscode/*
+.vscode/
 __pycache__/
+test/
