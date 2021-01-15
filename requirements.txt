@@ -1,6 +1,5 @@
-matplotlib==3.2.2
-numpy==1.18.5
 peewee==3.14.0
-Pillow==7.1.2
+Pillow==8.1.0
 pyfase==1.0.3
-# RPi.GPIO==0.7.0
+pyzmq==21.0.1
+zmq==0.0.0

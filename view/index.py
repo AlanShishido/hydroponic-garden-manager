@@ -6,7 +6,7 @@ from functools import partial
 
 # from view import colors
 # import colors
-import colors
+from supports import colors
 
 root = tk.Tk()
 root.title("Qualidade dos Nutrientes da Hidroponia de alface")

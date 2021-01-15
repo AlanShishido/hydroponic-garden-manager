@@ -1,5 +1,5 @@
 
- 
+
 BG_GREEN = '#65aa34'
 
 AERO_BLUE = '#D7FDF0'
@@ -13,4 +13,3 @@ OPAL = '#B4D6D3'
 LAVENDER_GRAY = '#B8BAC8'
 
 AFRICAN_VIOLET = '#AA78A6'
-

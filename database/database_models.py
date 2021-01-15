@@ -1,12 +1,12 @@
 import peewee
-from choices import DatabaseInfo as DB
+import db_constant as db
 
-db = peewee.SqliteDatabase(DB.SOURCE)
+project_db = peewee.SqliteDatabase(db.SOURCE)
 
 class BaseModel(peewee.Model):
 
     class Meta:
-        database = db
+        database = project_db
 
 
 class LettuceDatas(BaseModel):
