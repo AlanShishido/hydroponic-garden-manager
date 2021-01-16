@@ -1,12 +1,7 @@
-import sys
-import os.path
 import tkinter as tk
 from tkinter import ttk
 from functools import partial
-
-# from view import colors
-# import colors
-from supports import colors
+from choices import ViewConstant as colors
 
 root = tk.Tk()
 root.title("Qualidade dos Nutrientes da Hidroponia de alface")
