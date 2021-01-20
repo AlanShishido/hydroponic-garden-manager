@@ -1,6 +1,7 @@
 import time
 import ADS1115 as analogic
 #todo verifcar instalação a import do RPi.GPIO "pip install RPi.GPIO"
+#todo verificar a instalação da aplicação no raspberry
 
 
 adc = analogic.ADS1115()
