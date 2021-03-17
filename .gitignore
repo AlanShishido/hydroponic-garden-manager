@@ -1,6 +1,7 @@
 # dados de desenvolvimento
 .idea/*
 env/
+venv/
 prog_test/*
 
 # Cache e depuração
