@@ -1,0 +1,61 @@
+from django.db import models
+from django.utils import timezone
+
+class DBNutrientsBase(models.Model):
+    id = models.AutoField(
+        db_column="ID",
+        null=False,
+        primary_key=True
+    )
+    created_at = models.DateTimeField(
+        db_column="dt_create",
+        null=False,
+        auto_now_add=True
+    )
+    modifield_at = models.DateTimeField(
+        db_column="dt_modify",
+        null=False,
+        auto_now=True
+    )
+
+    @property
+    def created_at_with_tz(self):
+        return timezone.localtime(self.modifield_at)
+
+    @property
+    def modifield_at_with_tz(self):
+        return timezone.localtime(self.modifield_at)
+
+    class Meta:
+        abstract = True
+
+
+class LettuceNutrients(DBNutrientsBase):
+    status_code = models.CharField(
+        db_column='status_code',
+        null=False,
+        default='0000',
+        max_length=4
+    )
+    ph_value = models.FloatField(
+        db_column='ph'
+    )
+
+
+    class Meta:
+        db_table = 'nutrientes_alface'
+        verbose_name = 'Nutriente da Alface'
+        verbose_name_plural = 'Nutrientes das Alfaces'
+        managed = True
+
+class HistoryNutrientsData(DBNutrientsBase):
+    greens = models.CharField(
+        db_column="greens",
+        max_length=32
+    )
+        
+    class Meta:
+        db_table = 'historico_nutrientes'
+        verbose_name = 'Historico de Nutriente'
+        verbose_name_plural = 'Historico de Nutrientes'
+        managed = True
