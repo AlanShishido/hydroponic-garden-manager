@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils import timezone
 
+
 class DBNutrientsBase(models.Model):
     id = models.AutoField(
-        db_column="ID",
+        db_column="id",
         null=False,
         primary_key=True
     )
@@ -20,7 +21,7 @@ class DBNutrientsBase(models.Model):
 
     @property
     def created_at_with_tz(self):
-        return timezone.localtime(self.modifield_at)
+        return timezone.localtime(self.created_at)
 
     @property
     def modifield_at_with_tz(self):
