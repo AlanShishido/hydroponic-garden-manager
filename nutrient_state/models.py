@@ -45,7 +45,12 @@ class LettuceNutrients(DBNutrientsBase):
         max_length=4
     )
     ph_value = models.FloatField(
-        db_column='ph_value'
+        db_column='ph_value',
+        null=False
+    )
+    tds_value = models.FloatField(
+        db_column='tds_value',
+        null=False
     )
 
     objects = LettuceNutrientsManager()
