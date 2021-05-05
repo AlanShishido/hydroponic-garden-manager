@@ -1,3 +1,6 @@
+Adafruit-ADS1x15==1.0.2
+Adafruit-GPIO==1.0.3
+Adafruit-PureIO==1.1.8
 ADS1115==0.2.1
 asgiref==3.3.1
 Django==3.1.7
@@ -8,6 +11,8 @@ pyfase==1.0.3
 python-dotenv==0.15.0
 pytz==2021.1
 pyzmq==21.0.1
+RPi.GPIO==0.7.0
 smbus2==0.4.1
+spidev==3.5
 sqlparse==0.4.1
 zmq==0.0.0
