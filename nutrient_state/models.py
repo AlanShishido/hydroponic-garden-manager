@@ -3,6 +3,7 @@ from django.utils import timezone
 
 from nutrient_state.modelmanager import LettuceNutrientsManager, HistoryNutrientsDataManager
 
+
 class DBNutrientsBase(models.Model):
     id = models.AutoField(
         db_column="id",
@@ -41,16 +42,23 @@ class LettuceNutrients(DBNutrientsBase):
     status_code = models.CharField(
         db_column='status_code',
         null=False,
-        default='0000',
+        default='0',
         max_length=4
     )
     ph_value = models.FloatField(
         db_column='ph_value',
-        null=False
+        null=False,
+        default='-1'
     )
     tds_value = models.FloatField(
         db_column='tds_value',
-        null=False
+        null=False,
+        default='-1',
+    )
+    tank_level = models.FloatField(
+        db_column='tank_level',
+        null=False,
+        default='-1',
     )
 
     objects = LettuceNutrientsManager()

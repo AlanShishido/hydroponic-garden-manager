@@ -8,10 +8,10 @@ from pyfase import MicroService
 class ActionBase(MicroService):
     def __init__(self):
         self.sender, self.receiver = self.__load_conf()
-        print(self.sender +'\n'+ self.receiver)
+        print(self.sender +'--'+ self.receiver)
         self.message = None
         self.except_message = None
-        self.websocker = None
+        self.websocket = None
         super(ActionBase, self).__init__(self, sender_endpoint=self.sender, receiver_endpoint=self.receiver)
 
     def on_connect(self):
@@ -36,7 +36,7 @@ class ActionBase(MicroService):
     def run_action(action, payload):
         try:
             action(payload)
-            return
+            return None
         except Exception as Ex:
             return Ex
 

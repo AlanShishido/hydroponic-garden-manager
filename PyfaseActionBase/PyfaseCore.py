@@ -10,6 +10,6 @@ def init_core(sender_port: int, receiver_port: int):
         print('\n')
         print('Server de sender e receiver: {} e {}'.format(sender_port, receiver_port))
         print('\n')
-        Fase(sender_endpoint=sender, receiver_endpoint=receiver)
+        Fase(sender_endpoint=sender, receiver_endpoint=receiver).execute()
     except Exception as Ex:
         print('connection failed: {}'.format(Ex))
