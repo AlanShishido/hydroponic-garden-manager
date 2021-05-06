@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Custom Apps
-    'nutrient_state',
-    'rasp_controller'
+    'nutrient_state.apps.NutrientStateConfig',
+    'rasp_controller.apps.RaspControllerConfig'
 ]
 
 MIDDLEWARE = [
