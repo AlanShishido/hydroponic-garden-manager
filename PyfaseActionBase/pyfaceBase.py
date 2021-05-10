@@ -1,6 +1,8 @@
 import os
 import logging
 from os.path import exists
+
+from django.db import DatabaseError, transaction
 from dotenv import load_dotenv
 from pyfase import MicroService
 
@@ -8,7 +10,7 @@ from pyfase import MicroService
 class ActionBase(MicroService):
     def __init__(self):
         self.sender, self.receiver = self.__load_conf()
-        print(self.sender +'--'+ self.receiver)
+        print('Sender: {}  === Receiver: {}'.format(self.sender, self.receiver))
         self.message = None
         self.except_message = None
         self.websocket = None
@@ -33,10 +35,12 @@ class ActionBase(MicroService):
             return endpoint.format('localhost', '3000'), endpoint.format('localhost', '9000')
 
     @staticmethod
-    def run_action(action, payload):
+    def run_methods(action, payload):
         try:
-            action(payload)
-            return None
-        except Exception as Ex:
+            with transaction.atomic():
+                action(payload)
+                return
+        except (DatabaseError, Exception) as Ex:
+            transaction.rollback()
             return Ex
 
