@@ -1,3 +1,4 @@
+import logging
 import os
 import time
 
@@ -23,7 +24,12 @@ class SystemBase(ActionBase):
 
 class HydroponicSystem(SystemBase):
     def __init__(self):
+        self.setup_rasp_gpio()
         super(HydroponicSystem, self).__init__()
+
+    @staticmethod
+    def setup_rasp_gpio(self):
+        methods.setup_gpio_pins()
 
     def on_connect(self):
         print('## ON_CONNECT ## {}'.format(self.name))
@@ -36,11 +42,14 @@ class HydroponicSystem(SystemBase):
     def get_sample(self, service, data):
         payload = self.create_sample_model()
         tank_value = payload['tank']
-        tank_value['ph_value'] = methods.get_ph_simulate()
-        tank_value['tds_value'] = methods.get_tds_simulate()
-        tank_value['t_value'] = methods.get_temperature_simulate()
-        print(tank_value)
-        self.request_action('save_nutrients_value', tank_value)
+        try:
+            tank_value['ph_value'] = methods.get_ph_simulate()
+            tank_value['tds_value'] = methods.get_tds_simulate()
+            tank_value['t_value'] = methods.get_temperature_simulate()
+            print(tank_value)
+            self.request_action('save_nutrients_value', tank_value)
+        except Exception as Ex:
+            logging.warning(msg=Ex)
 
 
     @MicroService.action
