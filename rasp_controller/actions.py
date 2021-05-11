@@ -28,7 +28,7 @@ class HydroponicSystem(SystemBase):
         super(HydroponicSystem, self).__init__()
 
     @staticmethod
-    def setup_rasp_gpio(self):
+    def setup_rasp_gpio():
         methods.setup_gpio_pins()
 
     def on_connect(self):
