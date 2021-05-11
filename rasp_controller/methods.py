@@ -1,7 +1,7 @@
 import random
 import time
 import Adafruit_ADS1x15
-# from RPi.GPIO as gpio
+import RPi.GPIO as gpio
 
 
 adc = Adafruit_ADS1x15.ADS1115()
@@ -9,12 +9,12 @@ GAIN = 1
 
 
 def setup_gpio_pins():
-    # gpio.setmode()
-    # gpio.setup(5, gpio.OUT)
-    # gpio.setup(6, gpio.OUT)
-    # gpio.setup(12, gpio.OUT)
-    # gpio.setup(13, gpio.OUT)
-    pass
+    gpio.setmode(gpio.BOARD)
+    gpio.setup(5, gpio.OUT)
+    gpio.setup(6, gpio.OUT)
+    gpio.setup(12, gpio.OUT)
+    gpio.setup(13, gpio.OUT)
+    gpio.output(12, gpio.HIGH)
 
 
 def get_ph_simulate():
