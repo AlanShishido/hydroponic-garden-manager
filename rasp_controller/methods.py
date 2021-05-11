@@ -9,7 +9,7 @@ GAIN = 1
 
 
 def setup_gpio_pins():
-    gpio.setmode(gpio.BOARD)
+    gpio.setmode(gpio.BCM)
     gpio.setup(5, gpio.OUT)
     gpio.setup(6, gpio.OUT)
     gpio.setup(12, gpio.OUT)
