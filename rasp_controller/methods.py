@@ -32,7 +32,7 @@ def get_temperature_simulate():
 def get_ph_rasp(samples: int):
     values = [0]*samples
     for i in range(samples):
-        values[i] = Adafruit_ADS1x15.ADS1115.read_adc(0, gain=GAIN)
+        values[i] = Adafruit_ADS1x15.ADS1115().read_adc(0, gain=GAIN)
         time.sleep(0.2)
     Ph_av = sum(values) / samples
     return Ph_av
