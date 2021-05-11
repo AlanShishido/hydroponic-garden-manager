@@ -14,9 +14,9 @@ class SystemBase(ActionBase):
         return{
             'type': 'sample',
             'tank': {
-                'ph_value': 0,
-                'tds_value': 0,
-                't_value': 0
+                'ph_value': -1.0,
+                'tds_value': -1.0,
+                't_value': -1.0
             }
         }
 
@@ -35,8 +35,13 @@ class HydroponicSystem(SystemBase):
     @MicroService.action
     def get_sample(self, service, data):
         payload = self.create_sample_model()
-        print(payload['tank'])
-        self.request_action('get_ph_value', payload)
+        tank_value = payload['tank']
+        tank_value['ph_value'] = methods.get_ph_simulate()
+        tank_value['tds_value'] = methods.get_tds_simulate()
+        tank_value['t_value'] = methods.get_temperature_simulate()
+        print(tank_value)
+        self.request_action('save_nutrients_value', tank_value)
+
 
     @MicroService.action
     def get_ph_value(self, service, data):
@@ -47,14 +52,20 @@ class HydroponicSystem(SystemBase):
         data['tank'] = tank
         print(data['tank'])
 
-        self.request_action('get_tds_value', data)
-
     @MicroService.action
     def get_tds_value(self, service, data):
         tds_value = methods.get_tds_simulate()
         tank = data['tank']
         tank['tds_value'] = tds_value
         data['tank'] = tank
+        print(data['tank'])
+
+    @MicroService.action
+    def get_temperature_value(self, service, data):
+        temperature_value = methods.get_temperature_simulate()
+        t_value = data['tank']
+        t_value['t_value'] = temperature_value
+        data['tank'] = t_value
         print(data['tank'])
 
     @MicroService.task
