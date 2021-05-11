@@ -34,9 +34,11 @@ class HydroponicSystem(SystemBase):
     def on_connect(self):
         print('## ON_CONNECT ## {}'.format(self.name))
 
-    @MicroService.action
-    def console_log(self, service, data):
-        print('service: {} \ndata:{}'.format(service, data))
+    @MicroService.task
+    def data_acquisition(self):
+        while True:
+            self.request_action('get_ph_value', {})  # próprio HydroponicSystem
+            time.sleep(int(os.environ.get('INTERVAL_TASK')))
 
     @MicroService.action
     def get_sample(self, service, data):
@@ -51,15 +53,14 @@ class HydroponicSystem(SystemBase):
         except Exception as Ex:
             logging.warning(msg=Ex)
 
-
     @MicroService.action
     def get_ph_value(self, service, data):
-        ph_data = methods.get_ph_simulate()  # Colocando pra Simular a aquisição do valor
-        # self.request_action('save_ph_value', {'ph_value': ph_data})
-        tank = data['tank']
+        payload = data
+        ph_data = methods.get_ph_rasp(10)
+        tank = payload['tank']
         tank['ph_value'] = ph_data
-        data['tank'] = tank
-        print(data['tank'])
+        payload['tank'] = tank
+        print(payload)
 
     @MicroService.action
     def get_tds_value(self, service, data):
@@ -77,8 +78,4 @@ class HydroponicSystem(SystemBase):
         data['tank'] = t_value
         print(data['tank'])
 
-    @MicroService.task
-    def data_acquisition(self):
-        while True:
-            self.request_action('get_sample', {})  # próprio HydroponicSystem
-            time.sleep(int(os.environ.get('INTERVAL_TASK')))
+
