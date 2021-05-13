@@ -56,7 +56,7 @@ class HydroponicSystem(SystemBase):
     @MicroService.action
     def get_ph_value(self, service, data):
         payload = data
-        ph_data = methods.get_ph_rasp(10)
+        ph_data = methods.pi_get_ph(10)
         tank = payload['tank']
         tank['ph_value'] = ph_data
         payload['tank'] = tank

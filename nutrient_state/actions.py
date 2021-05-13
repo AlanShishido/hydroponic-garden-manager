@@ -12,8 +12,6 @@ class NutrientsDatabase(ActionBase):
 
         payload = (data['ph_value'], data['tds_value'], data['t_value'])
 
-
-
         result = self.run_methods(methods.save_nutrients_value, payload)
         if result is None:
             print('saved')
