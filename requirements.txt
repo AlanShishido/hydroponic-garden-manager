@@ -1,7 +1,6 @@
 Adafruit-ADS1x15==1.0.2
 Adafruit-GPIO==1.0.3
-Adafruit-PureIO==1.1.8
-ADS1115==0.2.1
+Adafruit-PureIO==1.0.1
 asgiref==3.3.1
 Django==3.1.7
 djangorestframework==3.12.2
