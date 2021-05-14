@@ -18,7 +18,7 @@
 
 ## Instalation Step
 
-`Developed Python 3.8.7 version`
+`Developed Python 3.8.5 version`
 
 ### Raspberry Setup after installing Raspbian OS
     
@@ -26,6 +26,11 @@
 sudo apt update
 sudo apt-get update
 sudo apt upgrade
+```
+### Postgres
+
+```
+sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y
 ```
 
 ### Update to Python 3.8.7
@@ -54,8 +59,8 @@ python -V
 ```
 Clean up
 ```
-sudo rm -rf Python-3.8.0.tgz
-sudo rm -rf Python-3.8.0
+sudo rm -rf Python-3.8.7.tgz
+sudo rm -rf Python-3.8.7
 ```
 
 
@@ -76,6 +81,7 @@ curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker pi
 ```
 `Reboot here or run the next commands with a sudo`
+
 3. Test Docker installation
 ```
 docker run hello-world
@@ -83,11 +89,7 @@ docker run hello-world
 4. IMPORTANT! Install proper dependencies
 ```
 sudo apt-get install -y libffi-dev libssl-dev
-```
-```
 sudo apt-get install -y python3 python3-pip
-```
-```
 sudo apt-get remove python-configparser
 ```
 5. Install Docker Compose
