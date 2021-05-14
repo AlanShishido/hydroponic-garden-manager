@@ -7,23 +7,11 @@ services:
     image: postgres
     container_name: postgres_default
     environment:
-      - POSTGRES_USER=postgresc
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=hydroponicsystem
-      - POSTGRES_PORT=c
+      - POSTGRES_PORT=5432
     ports:
       - "5432:5432"
     volumes:
       - ~/postgres_data:/var/lib/pgsql/data
-
-  pgadmin:
-    restart: always
-    image: dpage/pgadmin4
-    container_name: pgadmin4_defaultc
-    environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.com
-      PGADMIN_DEFAULT_PASSWORD: pgadmin
-    depends_on:
-      - postgres
-    ports:
-      - "5051:80"
