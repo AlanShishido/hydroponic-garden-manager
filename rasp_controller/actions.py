@@ -37,7 +37,8 @@ class HydroponicSystem(SystemBase):
     @MicroService.task
     def data_acquisition(self):
         while True:
-            self.request_action('get_ph_value', {})  # próprio HydroponicSystem
+            payload = self.create_sample_model()
+            self.request_action('get_ph_value', payload)  # próprio HydroponicSystem
             time.sleep(int(os.environ.get('INTERVAL_TASK')))
 
     @MicroService.action
