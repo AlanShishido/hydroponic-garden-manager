@@ -6,7 +6,7 @@ from nutrient_state.modelmanager import LettuceNutrientsManager, HistoryNutrient
 
 class DBNutrientsBase(models.Model):
     id = models.AutoField(
-        db_column="id",
+        db_column='id',
         null=False,
         primary_key=True
     )

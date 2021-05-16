@@ -29,21 +29,15 @@ class HydroponicSystem(SystemBase):
 
     @staticmethod
     def setup_rasp_gpio():
-        methods.setup_gpio_pins()
+        pass
+        # methods.setup_gpio_pins()
 
     def on_connect(self):
         print('## ON_CONNECT ## {}'.format(self.name))
 
-    @MicroService.task
-    def data_acquisition(self):
-        while True:
-            payload = self.create_sample_model()
-            self.request_action('get_ph_value', payload)  # próprio HydroponicSystem
-            time.sleep(int(os.environ.get('INTERVAL_TASK')))
-
     @MicroService.action
     def get_sample(self, service, data):
-        payload = self.create_sample_model()
+        payload = data
         tank_value = payload['tank']
         try:
             tank_value['ph_value'] = methods.get_ph_simulate()
@@ -53,6 +47,8 @@ class HydroponicSystem(SystemBase):
             self.request_action('save_nutrients_value', tank_value)
         except Exception as Ex:
             logging.warning(msg=Ex)
+
+        self.request_action('save_nutrients_value', tank_value)
 
     @MicroService.action
     def get_ph_value(self, service, data):
@@ -65,18 +61,28 @@ class HydroponicSystem(SystemBase):
 
     @MicroService.action
     def get_tds_value(self, service, data):
+        payload = data
         tds_value = methods.get_tds_simulate()
-        tank = data['tank']
+        tank = payload['tank']
         tank['tds_value'] = tds_value
-        data['tank'] = tank
-        print(data['tank'])
+        payload['tank'] = tank
+        print(payload['tank'])
 
     @MicroService.action
     def get_temperature_value(self, service, data):
+        payload = data
         temperature_value = methods.get_temperature_simulate()
-        t_value = data['tank']
+        t_value = payload['tank']
         t_value['t_value'] = temperature_value
-        data['tank'] = t_value
-        print(data['tank'])
+        payload['tank'] = t_value
+        print(payload['tank'])
+
+    @MicroService.task
+    def data_acquisition(self):
+        while True:
+            payload = self.create_sample_model()
+            self.request_action('get_sample', payload)  # próprio HydroponicSystem
+            time.sleep(int(os.environ.get('INTERVAL_TASK')))
+
 
 

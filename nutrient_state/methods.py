@@ -1,5 +1,6 @@
 from nutrient_state import models
 
+
 def save_nutrients_value(payload: tuple):
     ph, tds, tank = payload
     maintenance_itens = models.LettuceNutrients(
