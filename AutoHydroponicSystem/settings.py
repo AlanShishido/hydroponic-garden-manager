@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     # Custom Apps
     'nutrient_state.apps.NutrientStateConfig',
     'rasp_controller.apps.RaspControllerConfig',
-    'vue_app.apps.VueAppConfig',
+    'ui_app.apps.UiAppConfig'
 ]
 
 MIDDLEWARE = [

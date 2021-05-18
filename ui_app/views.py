@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def test_vue(request):
+def consult_api(request):
     return render(request, 'index.html')

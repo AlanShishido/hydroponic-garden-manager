@@ -18,7 +18,7 @@ from django.urls import path
 from rest_framework import routers
 from nutrient_state.api.viewsets import LettuceNutrientsViewSet
 from django.conf.urls import include
-from vue_app import views as vue_views
+from ui_app import views as ui_views
 
 
 router = routers.DefaultRouter()
@@ -27,5 +27,5 @@ router.register(r'lettucenutrients', LettuceNutrientsViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('test', vue_views.test_vue)
+    path('alface/', ui_views.consult_api),
 ]

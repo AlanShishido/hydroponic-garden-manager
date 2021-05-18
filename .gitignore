@@ -8,3 +8,4 @@ prog_test/*
 .vscode/
 __pycache__/
 test/
+node_modules/
