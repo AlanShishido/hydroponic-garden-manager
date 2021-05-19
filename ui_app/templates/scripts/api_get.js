@@ -22,5 +22,5 @@ function show (datas){
         output += `<li>${data.id} - ${data.created_at}</li>`
     }
     console.log(output)
-    document.querySelector('main').innerHTML = output
+    document.querySelector('div#datas').innerHTML = output
 }
