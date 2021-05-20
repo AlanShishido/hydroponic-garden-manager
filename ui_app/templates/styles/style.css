@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #37C29A;
+}
+
+header h1,
+header h2{
+    height: 100%;
+    margin: 2vh 2vw;
+}
+header h1{
+    display: flex;
+    align-items: center;
+}
+
+header h2{
+    align-items: flex-start;
+    font-size: 12px;
+}
+
+#dashboard-page{
+    height: 90vh;
+    width: 100vw;
+    background-color: #DDEDDD;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+main{
+    height: 90%;
+    width: 87%;
+    padding: 1vh 5vw;
+    background-color: #fff;
+}
+
+main #cards-data{
+    display: flex;
+    justify-content: start;
+}
+main .card-data{
+    background-color: #DDEDDD;
+    border-style: dotted;
+    border-radius: 12px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+main .card-data h3{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main .card-data p{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #datas-objects{
+    background-color: #DDEDDD;
+    display: flex;
+    height: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main #datas-objects .data-object{
+    height: 98%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px 1px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+main #datas-objects .data-object p{
+    background-color: #fff;
+    width: 99%;
+    margin-bottom: 1px;
+    font:bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+}

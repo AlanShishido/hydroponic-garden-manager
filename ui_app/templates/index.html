@@ -4,34 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Hidroponia</title>
 </head>
 <body>
     <header>
         <h1>Hidroponia</h1>
         <h2>@HShishido</h2>
     </header>
-    <main>
-        <div class="cards-data">
-            <div class="card-data">
-                <h3>Acidez</h3>
-                
-            </div>
-            <div class="card-data">
-                <h3>Condutividade</h3>
-                
-            </div>
-            <div class="card-data">
-                <h3>Temperatura</h3>
-                
-            </div>
 
-        </div>
-        <div id="datas">
-
-        </div>
-
-    </main>
+    <div id="dashboard-page">
+        <main>
+            <h2>Medidores do Sistema</h2>
+            <div id="cards-data"></div>
+            <h2>Dados Obtidos</h2>
+            <div id="datas-objects"></div>
+        </main>
+    </div>  
     <script src="scripts/api_get.js"></script>
 </body>
 </html>
