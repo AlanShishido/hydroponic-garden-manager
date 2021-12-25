@@ -26,3 +26,6 @@ def save_tds_value(tds_value: float):
         tds_value=tds_value
     )
     maintenance_item.save()
+
+def programa(value: bool):
+    pass
